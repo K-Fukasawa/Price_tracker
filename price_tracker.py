@@ -1,12 +1,6 @@
 
 #1 Extract data from internet (URL, API setup)
 
-## https://www.amazon.com/
-## https://www.backupworks.com/
-## https://www.connection.com/
-## https://www.tape4backup.com/
-## https://tapeandmedia.com/
-
 # from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service
 
@@ -25,7 +19,12 @@ price1 = soup.find_all("span", class_="prod-detail-cost-value")
 print(price1)
 print(type(price1))
 
-#2 
+#2 Convert bs4 element into dataframe
+
+import pandas as pd
+df = pd.DataFrame(price1, columns=["LTO7"])
+print(type(df))
+print(df)
 
 
 #X Access to website
