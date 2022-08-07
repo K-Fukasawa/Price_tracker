@@ -7,17 +7,33 @@
 ## https://www.tape4backup.com/
 ## https://tapeandmedia.com/
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service
 
-s = Service('C:/Users/kai.fukasawa/Documents/GitHub/chromedriver')
-driver = webdriver.Chrome(service=s)
+# s = Service('C:/Users/kai.fukasawa/Documents/GitHub/chromedriver')  #< Print your filepath to Chromedriver here.
+# driver = webdriver.Chrome(service=s)
 
-#2 Access to website
-driver.get("https://www.google.com/")
-print(driver.title) #> Google
-driver.save_screenshot("search_page.png")
+import requests
+from bs4 import BeautifulSoup
 
+URL = "https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx"
+page = requests.get(URL)
+soup = BeautifulSoup(page.content, "html.parser")
+
+price1 = soup.find_all("span", class_="prod-detail-cost-value")
+# results = soup.find(id="prod-detail-cost-value")
+print(price1)
+print(type(price1))
+
+#2 
+
+
+#X Access to website
+# driver.get("https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx")
+# print(driver.title) #> Google
+# driver.save_screenshot("search_page.png")
+#X-2 Find element
+#X-3 Interact with element
 
 #3 Inspect data and store as df
 

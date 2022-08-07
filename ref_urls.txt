@@ -1,0 +1,5 @@
+Fix selenium error
+https://exerror.com/deprecationwarning-executable_path-has-been-deprecated-please-pass-in-a-service-object/
+
+Web price scraper example
+https://medium.com/geekculture/scrape-prices-from-website-with-python-526edd92ba3d
