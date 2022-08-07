@@ -1,0 +1,13 @@
+# This is the requirements.txt file...
+
+selenium
+pandas
+sendgrid==6.6.0
+
+
+# For Heroku to run tool on the server.
+gunicorn
+
+# Test
+
+pytest
