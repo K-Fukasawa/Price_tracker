@@ -102,6 +102,8 @@ df['IBM'] = df['IBM'].str.replace("$","", regex=True).astype(float)
 pd.options.display.float_format = "${:,.2f}".format
 
 
+#3 Export data to excel spreadsheet
+
 writer = pd.ExcelWriter("internet_pricing_LTO8.xlsx", engine = "xlsxwriter")
 df.to_excel(writer, sheet_name="LTO8")
 

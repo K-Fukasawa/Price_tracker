@@ -2,12 +2,11 @@
 
 Collects price information of LTO Ultrium products (gen 7, 8 and 9) for 4 brands (Fujifilm, IBM, HPE and Quantum) from 5 major e-commerce stores (listed below).
 
-https://www.amazon.com/
 https://www.backupworks.com/
-https://www.connection.com/
 https://www.tape4backup.com/
 https://tapeandmedia.com/
-
+https://www.amazon.com/ <-Not setup
+https://www.connection.com/ <-Not setup
 
 ## Installation
 Create a copy of this [repo](https://github.com/K-Fukasawa/Price_tracker), then clone your new repo onto your local computer by using tools such as GitHub Desktop, and navigate there from the command-line:
