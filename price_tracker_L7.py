@@ -56,13 +56,37 @@ pricet4bIBM7_3 = soup.find("span", class_="price")
 pricet4bIBM7_2 = list(pricet4bIBM7_3.stripped_strings)
 pricet4bIBM7 = "\n\n".join(pricet4bIBM7_2) #if pricet4bIBM7_2 else ""
 
+# Data extraction for LTO7 @Tape&Media
+# FUJI
+URL = "https://tapeandmedia.com/ibm-lto-7-tape-ultrium-tapes.asp"
+pagetamFFL7 = requests.get(URL)
+soup = BeautifulSoup(pagetamFFL7.content, "html.parser")
+pricetamFF7 = soup.find("span", class_="price price--withoutTax price--main").text
+# HPE
+URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
+pagetamHPEL7 = requests.get(URL)
+soup = BeautifulSoup(pagetamHPEL7.content, "html.parser")
+pricetamHPE7 = soup.find("span", class_="prod-detail-cost-value").text
+# QTM
+URL = "https://www.backupworks.com/Quantum-LTO-7-tape-cartridge-MR-L7MQN-01.aspx"
+pagetamQTML7 = requests.get(URL)
+soup = BeautifulSoup(pagetamQTML7.content, "html.parser")
+pricetamQTM7 = soup.find("span", class_="prod-detail-cost-value").text
+# IBM
+URL = "https://www.backupworks.com/IBM-LTO-7-tape-media-38L7302.aspx"
+pagetamIBML7 = requests.get(URL)
+soup = BeautifulSoup(pagetamIBML7.content, "html.parser")
+pricetamIBM7 = soup.find("span", class_="prod-detail-cost-value").text
+
+
 # Create list
 L7price_list = [
     [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
-    [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7]
+    [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7],
+    [pricetamFF7, pricetamHPE7, pricetamQTM7, pricetamIBM7]
 ]
 
-index = ["BackupWorks", "Tape4Backup"]
+index = ["BackupWorks", "Tape4Backup", "Tape&Media"]
 columns = ["FUJI", "HPE", "QTM", "IBM"]
 
 

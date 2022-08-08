@@ -6,3 +6,16 @@ https://medium.com/geekculture/scrape-prices-from-website-with-python-526edd92ba
 
 Create df
 https://www.ritchieng.com/creating-dataframe-from-objects/
+
+Set columns and index labels in df
+https://www.geeksforgeeks.org/different-ways-to-create-pandas-dataframe/
+
+Remove blank spaces from bs4 object
+https://stackoverflow.com/questions/4270742/how-to-remove-whitespace-in-beautifulsoup
+
+Convert df float values to 2 decimal points
+https://www.adamsmith.haus/python/answers/how-to-display-float-values-in-a-pandas-dataframe-to-two-decimal-places-in-python
+
+Format excel output
+https://riptutorial.com/python/example/23368/format-excel-files-with-xlsxwriter
+https://pbpython.com/improve-pandas-excel-output.html
