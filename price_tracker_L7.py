@@ -69,19 +69,26 @@ columns = ["FUJI", "HPE", "QTM", "IBM"]
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-import numpy as np
 df = pd.DataFrame(L7price_list, index=index,columns=columns)
 # df = df.replace({"FUJI":{"$":""}, "HPE":{"$":""}, "QTM":{"$":""}, "IBM":{"$":""}})
 df['FUJI'] = df['FUJI'].str.replace("$","", regex=True).astype(float)
 df['HPE'] = df['HPE'].str.replace("$","", regex=True).astype(float)
 df['QTM'] = df['QTM'].str.replace("$","", regex=True).astype(float)
 df['IBM'] = df['IBM'].str.replace("$","", regex=True).astype(float)
-# df = df.astype({"Fujifilm":"float","HPE":"float","Quantum":"float","IBM":"float"})
+pd.options.display.float_format = "${:,.2f}".format
 
-df = np.round(df, decimals = 2)
 
-# df['FUJI'] = df['FUJI'].astype(float)
-# df.to_excel("internet_pricing.xlsx")
+writer = pd.ExcelWriter("internet_pricing.xlsx", engine = "xlsxwriter")
+df.to_excel(writer, sheet_name="LTO7")
+
+workbook = writer.book
+worksheet = writer.sheets["LTO7"]
+
+format = workbook.add_format({"num_format": "$#,##0.00"})
+worksheet.set_column("A:A", 14, )
+worksheet.set_column("B:E", 10, format)
+
+writer.save()
 
 # df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
 print(type(df))
