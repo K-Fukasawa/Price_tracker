@@ -17,7 +17,7 @@ from price_tracker_L7 import df7
 from price_tracker_L8 import df8
 from price_tracker_L9 import df9
 
-writer = pd.ExcelWriter("Internet_pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
+writer = pd.ExcelWriter("Internet_Pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
 df7.to_excel(writer, sheet_name="LTO7", startcol=0, startrow=1)
 df8.to_excel(writer, sheet_name="LTO8", startcol=0, startrow=1)
 df9.to_excel(writer, sheet_name="LTO9", startcol=0, startrow=1)
