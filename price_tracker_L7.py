@@ -117,9 +117,11 @@ worksheet.set_column("B:E", 10, format)
 writer.save()
 
 # df7 = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
-print(type(df7))
+# print(type(df7))
+print("---------------------------------------")
+print("LTO7 Pricing as of", pd.Timestamp.now().strftime("%Y-%m-%d")+":")
 print(df7)
-
+print("---------------------------------------")
 
 
 

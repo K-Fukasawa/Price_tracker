@@ -117,9 +117,11 @@ worksheet.set_column("B:E", 10, format)
 writer.save()
 
 # df8 = pd.DataFrame(L8price_dict, index=index, columns=["Backup Works"])
-print(type(df8))
+# print(type(df8))
+print("---------------------------------------")
+print("LTO8 Pricing as of", pd.Timestamp.now().strftime("%Y-%m-%d")+":")
 print(df8)
-
+print("---------------------------------------")
 
 
 
