@@ -32,13 +32,41 @@ pageBWIBML7 = requests.get(URL)
 soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
 priceBWIBM7 = soup.find_all("span", class_="prod-detail-cost-value")
 
-# Create list
-L7price_list = [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
 
+# Data extraction for LTO7 @TapeBackup
+# FUJI
+URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/fuji-16456574-nr-lto-7-data-backup-tape-new-repacked"
+paget4b = requests.get(URL)
+soup = BeautifulSoup(paget4b.content, "html.parser")
+pricet4bFF7 = soup.find("span", class_="price")
+# HPE
+URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/hpe-c7977a-nr-lto-7-data-backup-tape-new-repacked"
+paget4b = requests.get(URL)
+soup = BeautifulSoup(paget4b.content, "html.parser")
+pricet4bHPE7 = soup.find("span", class_="price")
+# QTM
+URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/quantum-lto-7-data-backup-tape-new-repacked"
+paget4b = requests.get(URL)
+soup = BeautifulSoup(paget4b.content, "html.parser")
+pricet4bQTM7 = soup.find("span", class_="price")
+# IBM
+URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/ibm-38l7302-nr-lto-7-data-backup-tape-new-repacked"
+paget4b = requests.get(URL)
+soup = BeautifulSoup(paget4b.content, "html.parser")
+pricet4bIBM7 = soup.find("span", class_="price")
+
+# Create list
+L7price_list = [
+    [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
+    [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7]
+]
 # print(L7price_dict)
 # print(type(L7price_dict))
+# Create list
+# L7price_list = [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7]
+# print(L7price_list)
 
-# index = ["FUJI", "HPE", "Quantum", "IBM"]
+index = ["BacupWorks", "Tape4Backup"]
 columns = ["FUJI", "HPE", "Quantum", "IBM"]
 
 # FF
@@ -64,12 +92,12 @@ columns = ["FUJI", "HPE", "Quantum", "IBM"]
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-df = pd.DataFrame(L7price_list, index=["BackupWorks"],columns=columns)
+df = pd.DataFrame(L7price_list, index=index,columns=columns)
 # df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
 print(type(df))
 print(df)
-
-
+print(type(priceBWFF7))
+print(type(pricet4bFF7))
 
 #X Access to website
 # driver.get("https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx")
