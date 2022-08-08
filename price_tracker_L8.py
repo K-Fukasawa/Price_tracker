@@ -1,10 +1,10 @@
 
-#1 Extract data from internet (URL, API setup)
+# Extract data from internet
 
 import requests
 from bs4 import BeautifulSoup
 
-# Data extraction for LTO8 @Backupworks
+#1 Data extraction for LTO8 @Backupworks
 # FUJI
 URL = "https://www.backupworks.com/FujiFilm-LTO-8-Cartridge-16551221.aspx"
 pageBWFFL8 = requests.get(URL)

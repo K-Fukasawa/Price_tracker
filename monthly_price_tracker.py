@@ -25,18 +25,21 @@ df9.to_excel(writer, sheet_name="LTO9", startcol=0, startrow=1)
 workbook = writer.book
 
 worksheet = writer.sheets["LTO7"]
+worksheet.write_string(0, 0, 'LTO7 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 # worksheet.write_string(0, 0, 'LTO7 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 format = workbook.add_format({"num_format": "$#,##0.00"})
 worksheet.set_column("A:A", 14, )
 worksheet.set_column("B:E", 10, format)
 
 worksheet = writer.sheets["LTO8"]
+worksheet.write_string(0, 0, 'LTO8 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 # worksheet.write_string(0, 0, 'LTO8 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 format = workbook.add_format({"num_format": "$#,##0.00"})
 worksheet.set_column("A:A", 14, )
 worksheet.set_column("B:E", 10, format)
 
 worksheet = writer.sheets["LTO9"]
+worksheet.write_string(0, 0, 'LTO9 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 # worksheet.write_string(0, 0, 'LTO9 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 format = workbook.add_format({"num_format": "$#,##0.00"})
 worksheet.set_column("A:A", 14, )

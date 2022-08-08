@@ -1,10 +1,10 @@
 
-#1 Extract data from internet (URL, API setup)
+# Extract data from internet
 
 import requests
 from bs4 import BeautifulSoup
 
-# Data extraction for LTO9 @Backupworks
+#1 Data extraction for LTO9 @Backupworks
 # FUJI
 URL = "https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx"
 pageBWFFL9 = requests.get(URL)
@@ -101,7 +101,6 @@ df9['QTM'] = df9['QTM'].str.replace("$","", regex=True).astype(float)
 df9['IBM'] = df9['IBM'].str.replace("$","", regex=True).astype(float)
 pd.options.display.float_format = "${:,.2f}".format
 
-
 #3 Export data to excel spreadsheet
 # import datetime
 # writer = pd.ExcelWriter("internet_pricing_LTO9_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
@@ -119,10 +118,10 @@ pd.options.display.float_format = "${:,.2f}".format
 
 # df9 = pd.DataFrame(L9price_dict, index=index, columns=["Backup Works"])
 # print(type(df9))
-print("---------------------------------------")
+print("-------------------------------------------")
 print("LTO9 Pricing as of", pd.Timestamp.now().strftime("%Y-%m-%d")+":")
 print(df9)
-print("---------------------------------------")
+print("-------------------------------------------")
 
 
 
