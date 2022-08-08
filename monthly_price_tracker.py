@@ -3,9 +3,7 @@
 
 # execute all 3 py files:
 exec(open("price_tracker_L7.py").read())
-print("--------------------------------------------")
 exec(open("price_tracker_L8.py").read())
-print("--------------------------------------------")
 exec(open("price_tracker_L9.py").read())
 
 
