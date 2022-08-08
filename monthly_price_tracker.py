@@ -2,16 +2,16 @@
 # creates a combined excel file, and sends to specified email address.
 
 # execute all 3 py files:
-exec(open("price_tracker_L7.py").read())
-exec(open("price_tracker_L8.py").read())
-exec(open("price_tracker_L9.py").read())
+# exec(open("price_tracker_L7.py").read())
+# exec(open("price_tracker_L8.py").read())
+# exec(open("price_tracker_L9.py").read())
+## No need since the import function below executes all 3 py files.
 
 #3 Export data to excel spreadsheet
 
-import datetime
-
-timestamp = pd.Timestamp.now()
 # print("Timestamp:", timestamp.strftime("%Y-%m-%d, %H:%M"), timestamp.day_name())
+import datetime
+import pandas as pd
 
 from price_tracker_L7 import df7
 from price_tracker_L8 import df8
@@ -23,6 +23,7 @@ df8.to_excel(writer, sheet_name="LTO8", startcol=0, startrow=1)
 df9.to_excel(writer, sheet_name="LTO9", startcol=0, startrow=1)
 
 workbook = writer.book
+
 worksheet = writer.sheets["LTO7"]
 # worksheet.write_string(0, 0, 'LTO7 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
 format = workbook.add_format({"num_format": "$#,##0.00"})
