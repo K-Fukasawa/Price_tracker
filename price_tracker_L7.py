@@ -1,12 +1,6 @@
 
 #1 Extract data from internet (URL, API setup)
 
-# from selenium import webdriver
-# from selenium.webdriver.chrome.service import Service
-
-# s = Service('C:/Users/kai.fukasawa/Documents/GitHub/chromedriver')  #< Print your filepath to Chromedriver here.
-# driver = webdriver.Chrome(service=s)
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -32,91 +26,67 @@ pageBWIBML7 = requests.get(URL)
 soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
 priceBWIBM7 = soup.find("span", class_="prod-detail-cost-value").text
 
-
-# Data extraction for LTO7 @TapeBackup
+# Data extraction for LTO7 @Tape4Backup
 # FUJI
 URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/fuji-16456574-nr-lto-7-data-backup-tape-new-repacked"
 paget4b = requests.get(URL)
 soup = BeautifulSoup(paget4b.content, "html.parser")
 pricet4bFF7_3 = soup.find("span", class_="price")
 pricet4bFF7_2 = list(pricet4bFF7_3.stripped_strings)
-pricet4bFF7 = "\n\n".join(pricet4bFF7_2) if pricet4bFF7_2 else ""
+pricet4bFF7 = "\n\n".join(pricet4bFF7_2) #if pricet4bFF7_2 else ""
 # HPE
 URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/hpe-c7977a-nr-lto-7-data-backup-tape-new-repacked"
 paget4b = requests.get(URL)
 soup = BeautifulSoup(paget4b.content, "html.parser")
 pricet4bHPE7_3 = soup.find("span", class_="price")
 pricet4bHPE7_2 = list(pricet4bHPE7_3.stripped_strings)
-pricet4bHPE7 = "\n\n".join(pricet4bHPE7_2) if pricet4bHPE7_2 else ""
+pricet4bHPE7 = "\n\n".join(pricet4bHPE7_2) #if pricet4bHPE7_2 else ""
 # QTM
 URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/quantum-lto-7-data-backup-tape-new-repacked"
 paget4b = requests.get(URL)
 soup = BeautifulSoup(paget4b.content, "html.parser")
 pricet4bQTM7_3 = soup.find("span", class_="price")
 pricet4bQTM7_2 = list(pricet4bQTM7_3.stripped_strings)
-pricet4bQTM7 = "\n\n".join(pricet4bQTM7_2) if pricet4bQTM7_2 else ""
+pricet4bQTM7 = "\n\n".join(pricet4bQTM7_2) #if pricet4bQTM7_2 else ""
 # IBM
 URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/ibm-38l7302-nr-lto-7-data-backup-tape-new-repacked"
 paget4b = requests.get(URL)
 soup = BeautifulSoup(paget4b.content, "html.parser")
 pricet4bIBM7_3 = soup.find("span", class_="price")
 pricet4bIBM7_2 = list(pricet4bIBM7_3.stripped_strings)
-pricet4bIBM7 = "\n\n".join(pricet4bIBM7_2) if pricet4bIBM7_2 else ""
+pricet4bIBM7 = "\n\n".join(pricet4bIBM7_2) #if pricet4bIBM7_2 else ""
 
 # Create list
 L7price_list = [
     [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
     [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7]
 ]
-# print(L7price_dict)
-# print(type(L7price_dict))
-# Create list
-# L7price_list = [pricet4bFF7, pricet4bHPE7, pricet4bQTM7, pricet4bIBM7]
-# print(L7price_list)
 
 index = ["BackupWorks", "Tape4Backup"]
-columns = ["FUJI", "HPE", "Quantum", "IBM"]
+columns = ["FUJI", "HPE", "QTM", "IBM"]
 
-# FF
-# "DONE"
-# "https://www.backupworks.com/FujiFilm-LTO-8-Cartridge-16551221.aspx"
-# "https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx"
-
-# IBM
-# "DONE"
-# "https://www.backupworks.com/IBM-LTO-8-tape-cartridge-01PL041.aspx"
-# "https://www.backupworks.com/IBM-LTO-9-tape-media-02XW568.aspx"
-
-# Quantum
-# "DONE"
-# "https://www.backupworks.com/Quantum-LTO-8-Tape-media-MR-L8MQN-01.aspx"
-# "https://www.backupworks.com/Quantum-LTO-9-Tape-media-MR-L9MQN-01.aspx"
-
-# HPE
-# "DONE"
-# ""
-# ""
 
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
+import numpy as np
 df = pd.DataFrame(L7price_list, index=index,columns=columns)
-df.to_excel("internet_pricing.xlsx")
+# df = df.replace({"FUJI":{"$":""}, "HPE":{"$":""}, "QTM":{"$":""}, "IBM":{"$":""}})
+df['FUJI'] = df['FUJI'].str.replace("$","", regex=True).astype(float)
+df['HPE'] = df['HPE'].str.replace("$","", regex=True).astype(float)
+df['QTM'] = df['QTM'].str.replace("$","", regex=True).astype(float)
+df['IBM'] = df['IBM'].str.replace("$","", regex=True).astype(float)
+# df = df.astype({"Fujifilm":"float","HPE":"float","Quantum":"float","IBM":"float"})
+
+df = np.round(df, decimals = 2)
+
+# df['FUJI'] = df['FUJI'].astype(float)
+# df.to_excel("internet_pricing.xlsx")
 
 # df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
 print(type(df))
 print(df)
-print(type(priceBWFF7))
-print(type(pricet4bFF7))
 
-#X Access to website
-# driver.get("https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx")
-# print(driver.title) #> Google
-# driver.save_screenshot("search_page.png")
-#X-2 Find element
-#X-3 Interact with element
-
-#3 Inspect data and store as df
 
 
 

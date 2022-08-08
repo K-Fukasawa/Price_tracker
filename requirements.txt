@@ -5,6 +5,7 @@ sendgrid==6.6.0
 python-dotenv
 beautifulsoup4
 requests
+numpy
 
 # For Heroku to run tool on the server.
 # gunicorn
