@@ -12,34 +12,34 @@ from bs4 import BeautifulSoup
 
 # Data extraction for LTO7 @Backupworks
 # FUJI
-URL = "https://www.backupworks.com/Fujifilm-LTO-7-tape-media-16456574.aspx"
+URL = "https://www.connection.com/product/fujifilm-6tb-15tb-lto-7-ultrium-data-cartridge-w-case/16456574/32027865?cac=Result"
 pageBWFFL7 = requests.get(URL)
 soup = BeautifulSoup(pageBWFFL7.content, "html.parser")
-priceBWFF7 = soup.find_all("span", class_="prod-detail-cost-value")
+priceCOFF7 = soup.find(itemprop="price").get("content")
 # HPE
-URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
-pageBWHPEL7 = requests.get(URL)
-soup = BeautifulSoup(pageBWHPEL7.content, "html.parser")
-priceBWHPE7 = soup.find_all("span", class_="prod-detail-cost-value")
+# URL = "https://www.connection.com/product/hpe-15tb-lto-7-ultrium-rw-data-cartridge/c7977a/30982439?cac=Result"
+# pageBWHPEL7 = requests.get(URL)
+# soup = BeautifulSoup(pageBWHPEL7.content, "html.parser")
+# priceBWHPE7 = soup.find_all()
 # QTM
-URL = "https://www.backupworks.com/Quantum-LTO-7-tape-cartridge-MR-L7MQN-01.aspx"
-pageBWQTML7 = requests.get(URL)
-soup = BeautifulSoup(pageBWQTML7.content, "html.parser")
-priceBWQTM7 = soup.find_all("span", class_="prod-detail-cost-value")
+# URL = "https://www.connection.com/product/quantum-lto-7-ultrium-tape-cartridge/mr-l7mqn-01/30860087?cac=Result"
+# pageBWQTML7 = requests.get(URL)
+# soup = BeautifulSoup(pageBWQTML7.content, "html.parser")
+# priceBWQTM7 = soup.find_all()
 # IBM
-URL = "https://www.backupworks.com/IBM-LTO-7-tape-media-38L7302.aspx"
-pageBWIBML7 = requests.get(URL)
-soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
-priceBWIBM7 = soup.find_all("span", class_="prod-detail-cost-value")
+# URL = "https://www.connection.com/product/ibm-lto-7-ultrium-data-cartridge/38l7302/31777672?cac=Result"
+# pageBWIBML7 = requests.get(URL)
+# soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
+# priceBWIBM7 = soup.find_all()
 
 # Create list
-L7price_list = [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
+L7price_list = [priceCOFF7] # , priceBWHPE7, priceBWQTM7, priceBWIBM7],
 
 # print(L7price_dict)
 # print(type(L7price_dict))
 
 # index = ["FUJI", "HPE", "Quantum", "IBM"]
-columns = ["FUJI", "HPE", "Quantum", "IBM"]
+# columns = ["FUJI", "HPE", "Quantum", "IBM"]
 
 # FF
 # "DONE"
@@ -64,11 +64,10 @@ columns = ["FUJI", "HPE", "Quantum", "IBM"]
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-df = pd.DataFrame(L7price_list, index=["BackupWorks"],columns=columns)
+df = pd.DataFrame(L7price_list, index=["Connection"])#,columns=columns)
 # df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
-print(type(df))
+# print(type(df))
 print(df)
-
 
 
 #X Access to website

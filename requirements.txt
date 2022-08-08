@@ -1,7 +1,5 @@
 # This is the requirements.txt file...
 
-selenium
-webdriver-manager
 pandas
 sendgrid==6.6.0
 python-dotenv
