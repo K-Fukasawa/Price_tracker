@@ -17,40 +17,29 @@ pageBWFFL7 = requests.get(URL)
 soup = BeautifulSoup(pageBWFFL7.content, "html.parser")
 priceBWFF7 = soup.find_all("span", class_="prod-detail-cost-value")
 # HPE
-URL = "https://www.backupworks.com/IBM-LTO-7-tape-media-38L7302.aspx"
-pageBWIBML7 = requests.get(URL)
-soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
-priceBWIBM7 = soup.find_all("span", class_="prod-detail-cost-value")
+URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
+pageBWHPEL7 = requests.get(URL)
+soup = BeautifulSoup(pageBWHPEL7.content, "html.parser")
+priceBWHPE7 = soup.find_all("span", class_="prod-detail-cost-value")
 # QTM
 URL = "https://www.backupworks.com/Quantum-LTO-7-tape-cartridge-MR-L7MQN-01.aspx"
 pageBWQTML7 = requests.get(URL)
 soup = BeautifulSoup(pageBWQTML7.content, "html.parser")
 priceBWQTM7 = soup.find_all("span", class_="prod-detail-cost-value")
 # IBM
-URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
-pageBWHPEL7 = requests.get(URL)
-soup = BeautifulSoup(pageBWHPEL7.content, "html.parser")
-priceBWHPE7 = soup.find_all("span", class_="prod-detail-cost-value")
-
-
-
-
-
-
-
-
-
-
-
-
-
+URL = "https://www.backupworks.com/IBM-LTO-7-tape-media-38L7302.aspx"
+pageBWIBML7 = requests.get(URL)
+soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
+priceBWIBM7 = soup.find_all("span", class_="prod-detail-cost-value")
 
 # Create list
-price_list = [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7]
-print(price_list)
-print(type(price_list))
+L7price_list = [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7],
 
-index = ["FUJI", "HPE", "Quantum", "IBM"]
+# print(L7price_dict)
+# print(type(L7price_dict))
+
+# index = ["FUJI", "HPE", "Quantum", "IBM"]
+columns = ["FUJI", "HPE", "Quantum", "IBM"]
 
 # FF
 # "DONE"
@@ -75,7 +64,8 @@ index = ["FUJI", "HPE", "Quantum", "IBM"]
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-df = pd.DataFrame(price_list, index=index, columns=["Backup Works"])
+df = pd.DataFrame(L7price_list, index=["BackupWorks"],columns=columns)
+# df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
 # print(type(df))
 print(df)
 

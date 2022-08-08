@@ -3,3 +3,6 @@ https://exerror.com/deprecationwarning-executable_path-has-been-deprecated-pleas
 
 Web price scraper example
 https://medium.com/geekculture/scrape-prices-from-website-with-python-526edd92ba3d
+
+Create df
+https://www.ritchieng.com/creating-dataframe-from-objects/
