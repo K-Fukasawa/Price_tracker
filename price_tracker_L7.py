@@ -103,19 +103,19 @@ pd.options.display.float_format = "${:,.2f}".format
 
 
 #3 Export data to excel spreadsheet
-import datetime
-writer = pd.ExcelWriter("internet_pricing_LTO7_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
-df7.to_excel(writer, sheet_name="LTO7", startcol=0, startrow=1)
-
-workbook = writer.book
-worksheet = writer.sheets["LTO7"]
-worksheet.write_string(0, 0, 'LTO7 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
-
-format = workbook.add_format({"num_format": "$#,##0.00"})
-worksheet.set_column("A:A", 14, )
-worksheet.set_column("B:E", 10, format)
-
-writer.save()
+# import datetime
+# writer = pd.ExcelWriter("internet_pricing_LTO7_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
+# df7.to_excel(writer, sheet_name="LTO7", startcol=0, startrow=1)
+# 
+# workbook = writer.book
+# worksheet = writer.sheets["LTO7"]
+# worksheet.write_string(0, 0, 'LTO7 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
+# 
+# format = workbook.add_format({"num_format": "$#,##0.00"})
+# worksheet.set_column("A:A", 14, )
+# worksheet.set_column("B:E", 10, format)
+# 
+# writer.save()
 
 # df7 = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
 # print(type(df7))
