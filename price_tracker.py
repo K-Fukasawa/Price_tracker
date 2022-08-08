@@ -10,20 +10,73 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx"
-page = requests.get(URL)
-soup = BeautifulSoup(page.content, "html.parser")
+# Data extraction for LTO7 @Backupworks
+# FUJI
+URL = "https://www.backupworks.com/Fujifilm-LTO-7-tape-media-16456574.aspx"
+pageBWFFL7 = requests.get(URL)
+soup = BeautifulSoup(pageBWFFL7.content, "html.parser")
+priceBWFF7 = soup.find_all("span", class_="prod-detail-cost-value")
+# HPE
+URL = "https://www.backupworks.com/IBM-LTO-7-tape-media-38L7302.aspx"
+pageBWIBML7 = requests.get(URL)
+soup = BeautifulSoup(pageBWIBML7.content, "html.parser")
+priceBWIBM7 = soup.find_all("span", class_="prod-detail-cost-value")
+# QTM
+URL = "https://www.backupworks.com/Quantum-LTO-7-tape-cartridge-MR-L7MQN-01.aspx"
+pageBWQTML7 = requests.get(URL)
+soup = BeautifulSoup(pageBWQTML7.content, "html.parser")
+priceBWQTM7 = soup.find_all("span", class_="prod-detail-cost-value")
+# IBM
+URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
+pageBWHPEL7 = requests.get(URL)
+soup = BeautifulSoup(pageBWHPEL7.content, "html.parser")
+priceBWHPE7 = soup.find_all("span", class_="prod-detail-cost-value")
 
-price1 = soup.find_all("span", class_="prod-detail-cost-value")
-# results = soup.find(id="prod-detail-cost-value")
-print(price1)
-print(type(price1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Create list
+price_list = [priceBWFF7, priceBWHPE7, priceBWQTM7, priceBWIBM7]
+print(price_list)
+print(type(price_list))
+
+index = ["FUJI", "HPE", "Quantum", "IBM"]
+
+# FF
+# "DONE"
+# "https://www.backupworks.com/FujiFilm-LTO-8-Cartridge-16551221.aspx"
+# "https://www.backupworks.com/FujiFilm-LTO-9-Tape-Media-16659047.aspx"
+
+# IBM
+# "DONE"
+# "https://www.backupworks.com/IBM-LTO-8-tape-cartridge-01PL041.aspx"
+# "https://www.backupworks.com/IBM-LTO-9-tape-media-02XW568.aspx"
+
+# Quantum
+# "DONE"
+# "https://www.backupworks.com/Quantum-LTO-8-Tape-media-MR-L8MQN-01.aspx"
+# "https://www.backupworks.com/Quantum-LTO-9-Tape-media-MR-L9MQN-01.aspx"
+
+# HPE
+# "DONE"
+# ""
+# ""
 
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-df = pd.DataFrame(price1, columns=["LTO7"])
-print(type(df))
+df = pd.DataFrame(price_list, index=index, columns=["Backup Works"])
+# print(type(df))
 print(df)
 
 
