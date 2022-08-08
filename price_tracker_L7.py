@@ -93,19 +93,19 @@ columns = ["FUJI", "HPE", "QTM", "IBM"]
 #2 Convert bs4 element into dataframe
 
 import pandas as pd
-df = pd.DataFrame(L7price_list, index=index,columns=columns)
-# df = df.replace({"FUJI":{"$":""}, "HPE":{"$":""}, "QTM":{"$":""}, "IBM":{"$":""}})
-df['FUJI'] = df['FUJI'].str.replace("$","", regex=True).astype(float)
-df['HPE'] = df['HPE'].str.replace("$","", regex=True).astype(float)
-df['QTM'] = df['QTM'].str.replace("$","", regex=True).astype(float)
-df['IBM'] = df['IBM'].str.replace("$","", regex=True).astype(float)
+df7 = pd.DataFrame(L7price_list, index=index,columns=columns)
+# df7 = df7.replace({"FUJI":{"$":""}, "HPE":{"$":""}, "QTM":{"$":""}, "IBM":{"$":""}})
+df7['FUJI'] = df7['FUJI'].str.replace("$","", regex=True).astype(float)
+df7['HPE'] = df7['HPE'].str.replace("$","", regex=True).astype(float)
+df7['QTM'] = df7['QTM'].str.replace("$","", regex=True).astype(float)
+df7['IBM'] = df7['IBM'].str.replace("$","", regex=True).astype(float)
 pd.options.display.float_format = "${:,.2f}".format
 
 
 #3 Export data to excel spreadsheet
-
-writer = pd.ExcelWriter("internet_pricing_LTO7.xlsx", engine = "xlsxwriter")
-df.to_excel(writer, sheet_name="LTO7")
+import datetime
+writer = pd.ExcelWriter("internet_pricing_LTO7_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
+df7.to_excel(writer, sheet_name="LTO7")
 
 workbook = writer.book
 worksheet = writer.sheets["LTO7"]
@@ -116,9 +116,9 @@ worksheet.set_column("B:E", 10, format)
 
 writer.save()
 
-# df = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
-print(type(df))
-print(df)
+# df7 = pd.DataFrame(L7price_dict, index=index, columns=["Backup Works"])
+print(type(df7))
+print(df7)
 
 
 
