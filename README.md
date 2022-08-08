@@ -26,16 +26,9 @@ Then, within an active virtual environment, install package dependencies:
 pip install -r requirements.txt
 ```
 
-## Configuration
-Chromedriver
-
-Sendgrid API
-
-
-
 ## Usage
-Collects today's price info and stores onto xlsx file.
-Pass the following command into command line to execute.
+By executing the program, the program will collect today's price information and stores onto an xlsx file.
+Pass the following command into command line to execute program.
 
 ```sh
 python monthly_price_tracker.py
@@ -43,3 +36,17 @@ python monthly_price_tracker.py
 
 After executing the py file, an xlsx file named "Internet_pricing_All_YYYY-MM-DD" will be created on the root directory. It will also show a table with the collected price information on the command line.
 
+## Setup auto-run using Heroku
+You can set up auto-run by setting uo this program on a Heroku server.
+
+### Configuration for Heroku
+
+## Send xlsx file to specified email address
+Using Sendgrid, you can send the generated xlsx file to a specified email address.
+
+### Configuration for Sendgrid
+To setup email feature, 
+
+
+## Limitations
+This program is designed to work specifically for the URLs within the py files (12 product pages from the 3 listed webisites) and does not have the flexibility to collect price information from other websites.

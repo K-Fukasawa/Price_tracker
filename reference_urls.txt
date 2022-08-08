@@ -28,3 +28,7 @@ https://www.codespeedy.com/remove-seconds-from-the-datetime-in-python/
 
 Import df from other py files using "import"
 https://www.codegrepper.com/code-examples/python/how+to+import+a+variable+from+another+python+file
+
+Combine multiple dataframes into one excel file with multiple sheets
+https://www.codegrepper.com/code-examples/python/pandas+excel+write+multiple+sheets
+
