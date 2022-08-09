@@ -4,7 +4,7 @@ import os
 import base64
 from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
 import datetime
 import pandas as pd
 
@@ -44,11 +44,25 @@ message = Mail(
     html_content="<strong>this is a test</strong>" #test_html
 )
 
+with open("Internet_Pricing_All_2022-08-09.xlsx", "rb") as f:
+    data = f.read()
+    f.close()
+encoded_file = base64.b64encode(data).decode()
+
+attachedFile = Attachment(
+    FileContent(encoded_file),
+    FileName('Internet_Pricing_All_2022-08-09.xlsx'),
+    FileType('application/xlsx'),
+    Disposition('attachment')
+)
+
+message.attachment = attachedFile
+
 client = SendGridAPIClient(SENDGRID_API_KEY)
 response = client.send(message)
 print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
 print(response.status_code) #> 202 indicates SUCCESS
-# print(response)
+
 
 # send_email(example_subject, example_html)
 
