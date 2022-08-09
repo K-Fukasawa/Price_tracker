@@ -44,7 +44,7 @@ message = Mail(
     html_content="<strong>this is a test</strong>" #test_html
 )
 
-with open("Internet_Pricing_All_2022-08-09.xlsx", "rb") as f:
+with open("Internet_Pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), "rb") as f:
     data = f.read()
     f.close()
 encoded_file = base64.b64encode(data).decode()
