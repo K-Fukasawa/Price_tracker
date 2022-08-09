@@ -74,19 +74,15 @@ try:
     soup = BeautifulSoup(pagetamQTML7.content, "html.parser")
     pricetamQTML7 = soup.find("span", class_="price price--withoutTax price--main").text
     # IBM
-    URL = "https://tapeandmedia.com/ibm-lto-7-tape-ultrium-tapes.aspHOOOOOOOOOO"
+    URL = "https://tapeandmedia.com/ibm-lto-7-tape-ultrium-tapes.asp"
     pagetamIBML7 = requests.get(URL)
     soup = BeautifulSoup(pagetamIBML7.content, "html.parser")
     pricetamIBML7 = soup.find("span", class_="price price--withoutTax price--main").text
 
 except Exception as e:
-    print(e)
-    print(traceback.format_exc(), "OK")
+    print(e, "LTO7 error")
     from send_error_msg import error_message
-    error_message(exception=e, message=traceback.format_exc())
-
-# except:
-    # print("OOPS. Something went wrong. Check the URLs.")
+    error_message()
 
 # Create list
 L7price_list = [

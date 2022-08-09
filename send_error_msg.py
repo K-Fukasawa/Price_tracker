@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+import traceback
 
 load_dotenv()
 
@@ -15,10 +16,8 @@ def error_message():
         <html>
           <body>
     
-            <b> Exception Details: </b> Exception: {exception}
-            <b>
-                {message}
-            </b>
+            <b> Error Details: </b> <br>
+            {traceback.format_exc()}
     
           </body>
         </html>
@@ -33,5 +32,3 @@ def error_message():
     response = client.send(error_msg)
     print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
     print(response.status_code) #> 202 indicates SUCCESS
-
-error_message()

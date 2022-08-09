@@ -7,7 +7,7 @@ beautifulsoup4
 requests
 datetime
 traceback
-sys
+smtplib
 
 # For Heroku to run tool on the server.
 # gunicorn
