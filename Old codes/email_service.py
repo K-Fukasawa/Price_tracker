@@ -14,34 +14,13 @@ SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 SENDER_EMAIL_ADDRESS = os.getenv("SENDER_EMAIL_ADDRESS")
 RECIPIENT_EMAIL_ADDRESSES = os.getenv("RECIPIENT_EMAIL_ADDRESSES")
 
-# Test HTML
-test_html = f"""
-<h3>This is a test of the Daily Briefing Service</h3>
-<h4>Today's Date</h4>
-<p>Monday, January 1, 2040</p>
-<h4>My Stocks</h4>
-<ul>
-    <li>MSFT | +3%</li>
-    <li>GOOG | +2%</li>
-    <li>AAPL | +4%</li>
-</ul>
-<h4>My Forecast</h4>
-<ul>
-    <li>10:00 AM | 65 DEGREES | CLEAR SKIES</li>
-    <li>01:00 PM | 70 DEGREES | CLEAR SKIES</li>
-    <li>04:00 PM | 75 DEGREES | CLEAR SKIES</li>
-    <li>07:00 PM | 67 DEGREES | PARTLY CLOUDY</li>
-    <li>10:00 PM | 56 DEGREES | CLEAR SKIES</li>
-</ul>
-"""
-
 to_emails = RECIPIENT_EMAIL_ADDRESSES #[("email@address1", "name2"), ("email@address2", "name2")]
 
 message = Mail(
     from_email=SENDER_EMAIL_ADDRESS,
     to_emails=to_emails, is_multiple=True,
     subject="[Monthly LTO Internet Price Tracker] {}".format(pd.Timestamp.now().strftime("%Y-%m-%d")),
-    html_content="<strong>this is a test</strong>" #test_html
+    html_content="<strong>LTO internet pricing information attached.</strong>"
 )
 
 with open("Internet_Pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), "rb") as f:
