@@ -1,6 +1,7 @@
 # app/email_service.py
 
 import os
+import base64
 from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
@@ -11,7 +12,7 @@ load_dotenv()
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 SENDER_EMAIL_ADDRESS = os.getenv("SENDER_EMAIL_ADDRESS")
-RECIPIENT_EMAIL_ADDRESS = os.getenv("RECIPIENT_EMAIL_ADDRESS")
+RECIPIENT_EMAIL_ADDRESSES = os.getenv("RECIPIENT_EMAIL_ADDRESSES")
 
 # Test HTML
 test_html = f"""
@@ -34,9 +35,11 @@ test_html = f"""
 </ul>
 """
 
+to_emails = RECIPIENT_EMAIL_ADDRESSES #[("email@address1", "name2"), ("email@address2", "name2")]
+
 message = Mail(
     from_email=SENDER_EMAIL_ADDRESS,
-    to_emails=RECIPIENT_EMAIL_ADDRESS,
+    to_emails=to_emails, is_multiple=True,
     subject="[Monthly LTO Internet Price Tracker] {}".format(pd.Timestamp.now().strftime("%Y-%m-%d")),
     html_content="<strong>this is a test</strong>" #test_html
 )
