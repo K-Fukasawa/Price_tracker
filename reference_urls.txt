@@ -25,9 +25,11 @@ https://stackoverflow.com/questions/436198/what-is-an-alternative-to-execfile-in
 
 Timestamp
 https://www.codespeedy.com/remove-seconds-from-the-datetime-in-python/
+https://www.tutorialspoint.com/python-pandas-get-the-current-date-and-time-from-timestamp-object
 
 Import df from other py files using "import"
 https://www.codegrepper.com/code-examples/python/how+to+import+a+variable+from+another+python+file
+https://www.delftstack.com/howto/python/python-run-another-python-script/#:~:text=1%20is%20active-,Use%20the%20execfile()%20Method%20to%20Run%20a%20Python%20Script,using%20the%20exec()%20method.
 
 Combine multiple dataframes into one excel file with multiple sheets
 https://www.codegrepper.com/code-examples/python/pandas+excel+write+multiple+sheets
