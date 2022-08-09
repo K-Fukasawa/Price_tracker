@@ -101,28 +101,29 @@ df8['QTM'] = df8['QTM'].str.replace("$","", regex=True).astype(float)
 df8['IBM'] = df8['IBM'].str.replace("$","", regex=True).astype(float)
 pd.options.display.float_format = "${:,.2f}".format
 
-
-#3 Export data to excel spreadsheet
-# import datetime
-# writer = pd.ExcelWriter("internet_pricing_LTO8_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
-# df8.to_excel(writer, sheet_name="LTO8", startcol=0, startrow=1)
-# 
-# workbook = writer.book
-# worksheet = writer.sheets["LTO8"]
-# worksheet.write_string(0, 0, 'LTO8 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
-# 
-# format = workbook.add_format({"num_format": "$#,##0.00"})
-# worksheet.set_column("A:A", 14, )
-# worksheet.set_column("B:E", 10, format)
-# 
-# writer.save()
-
-# df8 = pd.DataFrame(L8price_dict, index=index, columns=["Backup Works"])
-# print(type(df8))
 print("---------------------------------------")
 print("LTO8 Pricing as of", pd.Timestamp.now().strftime("%Y-%m-%d")+":")
 print(df8)
 print("---------------------------------------")
+
+
+#3 Export data to excel spreadsheet
+
+if __name__ == "__main__":
+    import datetime
+    writer = pd.ExcelWriter("internet_pricing_LTO8_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
+    df8.to_excel(writer, sheet_name="LTO8", startcol=0, startrow=1)
+    
+    workbook = writer.book
+    worksheet = writer.sheets["LTO8"]
+    worksheet.write_string(0, 0, 'LTO8 Internet Pricing as of '+pd.Timestamp.now().strftime("%Y-%m-%d"))
+    
+    format = workbook.add_format({"num_format": "$#,##0.00"})
+    worksheet.set_column("A:A", 14, )
+    worksheet.set_column("B:E", 10, format)
+    
+    writer.save()
+
 
 
 

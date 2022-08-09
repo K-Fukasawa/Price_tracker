@@ -4,14 +4,15 @@ import os
 from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+import datetime
+import pandas as pd
 
 load_dotenv()
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 SENDER_EMAIL_ADDRESS = os.getenv("SENDER_EMAIL_ADDRESS")
 
-
-def send_email(subject="[Daily Briefing] This is a test", html="<p>Hello World</p>", recipient_address=SENDER_EMAIL_ADDRESS):
+def send_email(subject="[Monthly LTO Internet Price Tracker]{}".format(pd.Timestamp.now().strftime("%Y-%m-%d")), html="<p>Hello World</p>", recipient_address=SENDER_EMAIL_ADDRESS):
     """
     Sends an email with the specified subject and html contents to the specified recipient,
 
