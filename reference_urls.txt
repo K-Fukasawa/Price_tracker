@@ -1,8 +1,9 @@
 Fix selenium error
 https://exerror.com/deprecationwarning-executable_path-has-been-deprecated-please-pass-in-a-service-object/
 
-Web price scraper example
+Scrape info from html website using beautifulsoup
 https://medium.com/geekculture/scrape-prices-from-website-with-python-526edd92ba3d
+https://www.codementor.io/@kayodeadechinan/scraping-an-e-commerce-website-with-beautifulsoup-jz9659hgk
 
 Create df
 https://www.ritchieng.com/creating-dataframe-from-objects/
