@@ -6,6 +6,8 @@ python-dotenv
 beautifulsoup4
 requests
 datetime
+traceback
+sys
 
 # For Heroku to run tool on the server.
 # gunicorn
