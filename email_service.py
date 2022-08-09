@@ -51,10 +51,12 @@ encoded_file = base64.b64encode(data).decode()
 
 attachedFile = Attachment(
     FileContent(encoded_file),
-    FileName('Internet_Pricing_All_2022-08-09.xlsx'),
+    FileName('Internet_Pricing_All_{}.xlsx'.format(pd.Timestamp.now().strftime("%Y-%m-%d"))),
     FileType('application/xlsx'),
     Disposition('attachment')
 )
+
+# "Internet_Pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d"))
 
 message.attachment = attachedFile
 
