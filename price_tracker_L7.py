@@ -10,7 +10,7 @@ try:
     URL = "https://www.backupworks.com/Fujifilm-LTO-7-tape-media-16456574.aspx"
     pageBWFFL7 = requests.get(URL)
     soup = BeautifulSoup(pageBWFFL7.content, "html.parser")
-    priceBWFFL7 = soup.find("span", class_="prod-detail-cost-valueXXXXXXXX").text
+    priceBWFFL7 = soup.find("span", class_="prod-detail-cost-value").text
     # HPE
     URL = "https://www.backupworks.com/HP-LTO-7-tape-cartridge-C7977A.aspx"
     pageBWHPEL7 = requests.get(URL)
