@@ -54,9 +54,12 @@ load_dotenv()
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 SENDER_EMAIL_ADDRESS = os.getenv("SENDER_EMAIL_ADDRESS")
-RECIPIENT_EMAIL_ADDRESSES = os.getenv("RECIPIENT_EMAIL_ADDRESSES")
+RECIPIENT_EMAIL_ADDRESS = os.getenv("RECIPIENT_EMAIL_ADDRESS")
 
-to_emails = RECIPIENT_EMAIL_ADDRESSES #[("email@address1", "name2"), ("email@address2", "name2")]
+if RECIPIENT_EMAIL_ADDRESS and ("," in RECIPIENT_EMAIL_ADDRESS):
+    RECIPIENT_EMAIL_ADDRESS = [email.strip() for email in RECIPIENT_EMAIL_ADDRESS.split(",")]
+
+to_emails = RECIPIENT_EMAIL_ADDRESS #[("email@address1", "name2"), ("email@address2", "name2")]
 
 message = Mail(
     from_email=SENDER_EMAIL_ADDRESS,

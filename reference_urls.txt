@@ -35,3 +35,7 @@ https://www.delftstack.com/howto/python/python-run-another-python-script/#:~:tex
 Combine multiple dataframes into one excel file with multiple sheets
 https://www.codegrepper.com/code-examples/python/pandas+excel+write+multiple+sheets
 
+Sendgrid with attachments
+https://www.twilio.com/blog/sending-email-attachments-with-twilio-sendgrid-python
+
+
