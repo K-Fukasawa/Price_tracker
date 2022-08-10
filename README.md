@@ -38,14 +38,14 @@ This program requires the following python packages to run. These packages are l
 
 ## Usage
 1. Price scrape and output as excel
-By executing the program, the program will collect today's price information and stores onto an xlsx file.
-Pass the following command into command line to execute program.
+    By executing the program, the program will collect today's price information and stores onto an xlsx file.
+    Pass the following command into command line to execute program.
 
 ```sh
 python monthly_price_tracker.py
 ```
 
-After executing the py file, an xlsx file named "Internet_pricing_All_YYYY-MM-DD" will be created on the root directory. It will also show a table with the collected price information on the command line.
+    After executing the py file, an xlsx file named "Internet_pricing_All_YYYY-MM-DD" will be created on the root directory. It will also show a table with the collected price information on the command line.
 
 2. Send excel file to specified recipient
 <Setup>
