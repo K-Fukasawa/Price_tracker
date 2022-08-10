@@ -25,6 +25,7 @@ Then, within an active virtual environment, install package dependencies:
 ```sh
 pip install -r requirements.txt
 ```
+
 ## Python Packages
 This program requires the following python packages to run. These packages are listed in the requirements.txt file.
 
@@ -33,10 +34,10 @@ This program requires the following python packages to run. These packages are l
  + python-dotenv
  + beautifulsoup4
  + requests
- + datetime
- + traceback
+ + xlsxwriter
 
 ## Usage
+1. Price scrape and output as excel
 By executing the program, the program will collect today's price information and stores onto an xlsx file.
 Pass the following command into command line to execute program.
 
@@ -45,6 +46,11 @@ python monthly_price_tracker.py
 ```
 
 After executing the py file, an xlsx file named "Internet_pricing_All_YYYY-MM-DD" will be created on the root directory. It will also show a table with the collected price information on the command line.
+
+2. Send excel file to specified recipient
+<Setup>
+To enable this feature
+
 
 ## Setup auto-run using Heroku
 You can set up auto-run by setting uo this program on a Heroku server.
