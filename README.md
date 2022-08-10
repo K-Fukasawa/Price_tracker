@@ -16,7 +16,7 @@ cd ~/Documents/GitHub/Price_tracker/
 Use Anaconda to create and activate a new virtual environment, perhaps called "price-tracker-env":
 
 ```sh
-conda create -n price-tracker-env python=3.8
+conda create -n price-tracker-env
 conda activate price-tracker-env
 ```
 
