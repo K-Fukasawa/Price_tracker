@@ -47,7 +47,7 @@ python monthly_price_tracker.py
 After executing the py file, an xlsx file named "Internet_pricing_All_YYYY-MM-DD" will be created on the root directory. It will also show a table with the collected price information on the command line.
 
 ## Usage 2: Send excel file to specified recipient
-Setup:
+### Setup:
 To enable this feature, first create a file named .env on your root directory.
 In the .env file, enter the following scripts and populate with required information.
 
@@ -59,7 +59,7 @@ In case you want to send the excel report to multiple emails, separate the addre
 
     RECIPIENT_EMAIL_ADDRESS="sample.address1@stern.nyu.edu,sample.address2@stern.nyu.edu"
 
-Program execution:
+### Program execution:
 To execute program, pass the following script into the command line.
 
 ```sh
@@ -68,20 +68,17 @@ python email_monthly_report.py
 
 If program is ran successfully, an email with the excel report attached will be sent from the sender address to the recipient address.
 
-In case of error:
-If for some reason the program 
+### In case of error:
+If for some reason the program encounters and error (perhaps due to change of URL, html of webpages), the program will send a error notification email to the sender address with error detail included.
 
 ## Setup auto-run using Heroku
 You can set up auto-run by setting uo this program on a Heroku server.
 
 ### Configuration for Heroku
 
-## Send xlsx file to specified email address
-Using Sendgrid, you can send the generated xlsx file to a specified email address.
 
 ### Configuration for Sendgrid
 To setup email feature, 
-
 
 ## Limitations
 This program is designed to work specifically for the URLs within the py files (12 product pages from the 3 listed webisites) and does not have the flexibility to collect price information from other websites.
