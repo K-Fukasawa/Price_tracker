@@ -1,6 +1,6 @@
 
 # Extract data from internet
-import traceback
+# import traceback
 import requests
 from bs4 import BeautifulSoup
 
