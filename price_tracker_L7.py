@@ -116,7 +116,7 @@ print("---------------------------------------")
 
 if __name__ == "__main__":
     import datetime
-    writer = pd.ExcelWriter("internet_pricing_LTO7_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), engine = "xlsxwriter")
+    writer = pd.ExcelWriter("internet_pricing_LTO7_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")))
     df7.to_excel(writer, sheet_name="LTO7", startcol=0, startrow=1)
 
     workbook = writer.book
