@@ -65,7 +65,7 @@ message = Mail(
     from_email=SENDER_EMAIL_ADDRESS,
     to_emails=to_emails, is_multiple=True,
     subject="[Monthly LTO Internet Price Tracker] {}".format(pd.Timestamp.now().strftime("%Y-%m-%d")),
-    html_content="<strong>LTO internet pricing information attached.</strong>"
+    html_content="<strong>LTO internet pricing report attached.</strong>"
 )
 
 with open("Internet_Pricing_All_{}.xlsx".format(pd.Timestamp.now().strftime("%Y-%m-%d")), "rb") as f:
