@@ -29,28 +29,28 @@ try:
 
     # Data extraction for LTO7 @Tape4Backup
     # FUJI
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/fuji-16456574-nr-lto-7-data-backup-tape-new-repacked"
+    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/fuji-16456574-lto-7-backup-tape-6-0-15-0tb"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bFFL7_3 = soup.find("span", class_="price")
     pricet4bFFL7_2 = list(pricet4bFFL7_3.stripped_strings)
     pricet4bFFL7 = "\n\n".join(pricet4bFFL7_2) #if pricet4bFFL7_2 else ""
     # HPE
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/hpe-c7977a-nr-lto-7-data-backup-tape-new-repacked"
+    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/hpe-lto-7-c7977a-data-backup-tape-retail"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bHPEL7_3 = soup.find("span", class_="price")
     pricet4bHPEL7_2 = list(pricet4bHPEL7_3.stripped_strings)
     pricet4bHPEL7 = "\n\n".join(pricet4bHPEL7_2) #if pricet4bHPEL7_2 else ""
     # QTM
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/quantum-lto-7-data-backup-tape-new-repacked"
+    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/quantum-mr-l7mqn-01-lto-7-ultrium-data-backup-tape-cartridge-6-0tb-15tb"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bQTML7_3 = soup.find("span", class_="price")
     pricet4bQTML7_2 = list(pricet4bQTML7_3.stripped_strings)
     pricet4bQTML7 = "\n\n".join(pricet4bQTML7_2) #if pricet4bQTML7_2 else ""
     # IBM
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/ibm-38l7302-nr-lto-7-data-backup-tape-new-repacked"
+    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/ibm-38l7302-lto-ultrium-7-backup-data-cartridge-6tb-15tb"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bIBML7_3 = soup.find("span", class_="price")
