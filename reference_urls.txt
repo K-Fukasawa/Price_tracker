@@ -38,4 +38,5 @@ https://www.codegrepper.com/code-examples/python/pandas+excel+write+multiple+she
 Sendgrid with attachments
 https://www.twilio.com/blog/sending-email-attachments-with-twilio-sendgrid-python
 
-
+Check if value is float
+https://stackoverflow.com/questions/4541155/check-if-a-number-is-int-or-float
