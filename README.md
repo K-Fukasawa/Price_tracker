@@ -35,6 +35,7 @@ This program requires the following python packages to run. These packages are l
  + beautifulsoup4
  + requests
  + xlsxwriter
+ + pytest
 
 ## Usage 1: Price scrape and output as excel
 By executing the program, the program will collect today's price information and stores onto an xlsx file.
