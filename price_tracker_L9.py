@@ -64,7 +64,7 @@ try:
     soup = BeautifulSoup(pagetamFFL9.content, "html.parser")
     pricetamFFL9 = soup.find("span", class_="price price--withoutTax price--main").text
     # HPE
-    URL = "https://tapeandmedia.com/hpe-lto-9-tape-with-barium-ferrite-bafe-q2079a/"
+    URL = "https://tapeandmedia.com/hpe-lto-9-tape-with-barium-ferrite--bafe--q2079a/"
     pagetamHPEL9 = requests.get(URL)
     soup = BeautifulSoup(pagetamHPEL9.content, "html.parser")
     pricetamHPEL9 = soup.find("span", class_="price price--withoutTax price--main").text
