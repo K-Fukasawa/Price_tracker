@@ -36,7 +36,7 @@ try:
     pricet4bFFL8_2 = list(pricet4bFFL8_3.stripped_strings)
     pricet4bFFL8 = "\n\n".join(pricet4bFFL8_2) 
     # HPE
-    URL = "https://www.tape4backup.com/products/hpe-q2078a-lto-8-backup-tape-bafe-12-30-tb"
+    URL = "https://www.tape4backup.com/products/hpe-lto-ultrium-8-12tb-30tb-rw-with-case?keyword=HPE%20LTO%208"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bHPEL8_3 = soup.find("span", class_="price")
