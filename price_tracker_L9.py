@@ -29,7 +29,7 @@ try:
 
     # Data extraction for LTO9 @Tape4Backup
     # FUJI
-    URL = "https://www.tape4backup.com/collections/lto-9-tapes/products/fuji-lto-9-backup-tape-retail-x-1-16659047"
+    URL = "https://www.tape4backup.com/products/fuji-lto-9-backup-tape?keyword=FUJI%20LTO%209"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bFFL9_3 = soup.find("span", class_="price")
