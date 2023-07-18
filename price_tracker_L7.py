@@ -29,14 +29,14 @@ try:
 
     # Data extraction for LTO7 @Tape4Backup
     # FUJI
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/fuji-16456574-lto-7-backup-tape-6-0-15-0tb"
+    URL = "https://www.tape4backup.com/products/fuji-16456574-lto-7-backup-tape-lto7?keyword=FUJIFILM%20LTO%207"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bFFL7_3 = soup.find("span", class_="price")
     pricet4bFFL7_2 = list(pricet4bFFL7_3.stripped_strings)
     pricet4bFFL7 = "\n\n".join(pricet4bFFL7_2) #if pricet4bFFL7_2 else ""
     # HPE
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/hpe-lto-7-c7977a-data-backup-tape-retail"
+    URL = "https://www.tape4backup.com/products/hpe-lto-7-c7977a-tape-backup-lto7-hp?keyword=HPE%20LTO%207"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bHPEL7_3 = soup.find("span", class_="price")
@@ -50,7 +50,7 @@ try:
     pricet4bQTML7_2 = list(pricet4bQTML7_3.stripped_strings)
     pricet4bQTML7 = "\n\n".join(pricet4bQTML7_2) #if pricet4bQTML7_2 else ""
     # IBM
-    URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/ibm-38l7302-lto-ultrium-7-backup-data-cartridge-6tb-15tb"
+    URL = "https://www.tape4backup.com/products/ibm-38l7302-lto-7-ultrium-lto7-backup-data-cartridge-tape?keyword=%20LTO%207%20IBM"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bIBML7_3 = soup.find("span", class_="price")
