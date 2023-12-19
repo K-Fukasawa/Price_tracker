@@ -34,28 +34,32 @@ try:
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bFFL9_3 = soup.find("span", class_="price")
     pricet4bFFL9_2 = list(pricet4bFFL9_3.stripped_strings)
-    pricet4bFFL9 = "\n\n".join(pricet4bFFL9_2) 
+    pricet4bFFL9 = pricet4bFFL9_2[1]
+    #pricet4bFFL9 = "\n\n".join(pricet4bFFL9_2)
     # HPE
     URL = "https://www.tape4backup.com/products/hpe-lto-9-backup-tape-ultrium-cartridge-lto9-q2079a?keyword=%20LTO%209%20HPE"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bHPEL9_3 = soup.find("span", class_="price")
     pricet4bHPEL9_2 = list(pricet4bHPEL9_3.stripped_strings)
-    pricet4bHPEL9 = "\n\n".join(pricet4bHPEL9_2) 
+    pricet4bHPEL9 = pricet4bHPEL9_2[1]
+    #pricet4bHPEL9 = "\n\n".join(pricet4bHPEL9_2) 
     # QTM
     URL = "https://www.tape4backup.com/products/quantum-lto-9-backup-tape-ultrium-lto9-mr-l9mqn-01?keyword=%20LTO%209%20Quantum"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bQTML9_3 = soup.find("span", class_="price")
     pricet4bQTML9_2 = list(pricet4bQTML9_3.stripped_strings)
-    pricet4bQTML9 = "\n\n".join(pricet4bQTML9_2) 
+    pricet4bQTML9 = pricet4bQTML9_2[1]
+    #pricet4bQTML9 = "\n\n".join(pricet4bQTML9_2) 
     # IBM
     URL = "https://www.tape4backup.com/products/ibm-lto-9-backup-tape-ultrium-lto9-02xw568?keyword=%20LTO%209%20IBM"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bIBML9_3 = soup.find("span", class_="price")
     pricet4bIBML9_2 = list(pricet4bIBML9_3.stripped_strings)
-    pricet4bIBML9 = "\n\n".join(pricet4bIBML9_2) 
+    pricet4bIBML9 = pricet4bIBML9_2[1]
+    #pricet4bIBML9 = "\n\n".join(pricet4bIBML9_2)
 
     # Data extraction for LTO9 @Tape&Media
     # FUJI

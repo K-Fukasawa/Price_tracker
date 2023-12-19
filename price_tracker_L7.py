@@ -34,28 +34,32 @@ try:
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bFFL7_3 = soup.find("span", class_="price")
     pricet4bFFL7_2 = list(pricet4bFFL7_3.stripped_strings)
-    pricet4bFFL7 = "\n\n".join(pricet4bFFL7_2) #if pricet4bFFL7_2 else ""
+    pricet4bFFL7 = pricet4bFFL7_2[1]
+    #pricet4bFFL7 = "\n\n".join(pricet4bFFL7_2) #if pricet4bFFL7_2 else ""
     # HPE
     URL = "https://www.tape4backup.com/products/hpe-lto-7-c7977a-tape-backup-lto7-hp?keyword=HPE%20LTO%207"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bHPEL7_3 = soup.find("span", class_="price")
     pricet4bHPEL7_2 = list(pricet4bHPEL7_3.stripped_strings)
-    pricet4bHPEL7 = "\n\n".join(pricet4bHPEL7_2) #if pricet4bHPEL7_2 else ""
+    pricet4bHPEL7 = pricet4bHPEL7_2[1]
+    #pricet4bHPEL7 = "\n\n".join(pricet4bHPEL7_2) #if pricet4bHPEL7_2 else ""
     # QTM
     URL = "https://www.tape4backup.com/collections/lto-7-tapes/products/quantum-mr-l7mqn-01-lto-7-ultrium-data-backup-tape-cartridge-6-0tb-15tb"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bQTML7_3 = soup.find("span", class_="price")
     pricet4bQTML7_2 = list(pricet4bQTML7_3.stripped_strings)
-    pricet4bQTML7 = "\n\n".join(pricet4bQTML7_2) #if pricet4bQTML7_2 else ""
+    pricet4bQTML7 = pricet4bQTML7_2[1]
+    #pricet4bQTML7 = "\n\n".join(pricet4bQTML7_2) #if pricet4bQTML7_2 else ""
     # IBM
     URL = "https://www.tape4backup.com/products/ibm-38l7302-lto-7-ultrium-lto7-backup-data-cartridge-tape?keyword=%20LTO%207%20IBM"
     paget4b = requests.get(URL)
     soup = BeautifulSoup(paget4b.content, "html.parser")
     pricet4bIBML7_3 = soup.find("span", class_="price")
     pricet4bIBML7_2 = list(pricet4bIBML7_3.stripped_strings)
-    pricet4bIBML7 = "\n\n".join(pricet4bIBML7_2) #if pricet4bIBML7_2 else ""
+    pricet4bIBML7 = pricet4bIBML7_2[1]
+    #pricet4bIBML7 = "\n\n".join(pricet4bIBML7_2) #if pricet4bIBML7_2 else ""
 
     # Data extraction for LTO7 @Tape&Media
     # FUJI
